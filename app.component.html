@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<title>page title </title>
+</head>
+  <body>
+    <div style="text-align:center">
+      <h1>
+         Welcome to {{title}}.
+      </h1>
+   </div>
+   
+   <div> Months :
+    <select (change) = "changemonths($event)">
+       <option *ngFor = "let i of months">{{i}}</option>
+    </select>
+ </div>
+ <br/>
+ 
+ 
+   <div>
+    <span *ngIf="isavailable; else condition1">Condition is valid.</span>
+    <ng-template #condition1>Condition is invalid</ng-template>
+ </div> 
+     <h1>Uppercase Pipe</h1>
+     <b>{{title | uppercase}}</b><br/>
+
+ <div style="text-align:center">
+   <span changeText >Welcome to {{title}}.</span>
+</div>
+ <button (click)="myClickFunction($event)">
+  Click Me
+</button>  
+    <p>paragraph</p>
+    <h1>Custom Pipe</h1>
+    <b>Square root of 25 is: {{25 | sqrt}}</b>
+    <br/>
+    <b>Square root of 729 is: {{729 | sqrt}}</b>  
+
+
+<br />
+<br/>
+<a routerLink = "new">New component</a>
+
+<router-outlet></router-outlet>
+{{todaydate}}
+<app-new></app-new>
+<ul *ngFor = "let data of httpdata">
+  <li>Name : {{data.name}} Address: {{data.address}}</li>
+</ul>
+{{name}} 
+{{address}}
+<form #userlogin = "ngForm" (ngSubmit) = "onClickSubmit(userlogin.value)" >
+  <input type = "text" name = "emailid" placeholder = "emailid" ngModel>
+  <br/>
+  <input type = "password" name = "passwd" placeholder = "passwd" ngModel>
+  <br/>
+  <input type = "submit" value = "submit">
+</form>
+
+  </body>
+  </html>
